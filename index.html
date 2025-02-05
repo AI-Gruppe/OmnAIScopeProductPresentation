@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <title>OmnAIScope - Die Zukunft der Fahrzeugdiagnose</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme">
+    <style>
+        :root {
+            --primary-color: #EB3E36;
+            --secondary-color: #F8F9FA;
+            --background-color: #0a0b0c;
+            --success-color: #44AA44;
+            --error-color: #D9534F;
+            --warning-color: #F0AD4E;
+        }
+        .reveal section h2 {
+            color: var(--primary-color);
+        }
+        .reveal section p, .reveal section ul {
+            color: var(--secondary-color);
+            font-size: 1.3em;
+        }
+        .slider-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+            overflow: hidden;
+        }
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h2>OmnAIScope: Fahrzeugdiagnose am Motor</h2>
+                <p>Präsize, einfach, machbar</p>
+                <img src="https://via.placeholder.com/800x400" alt="Produktbild">
+            </section>
+            
+            <section data-transition="zoom">
+                <h2>Das Problem</h2>
+                <p>Fehlercodes geben nur einen groben Rahmen wo der Fehler liegt</p>
+            </section>
+            <section>
+                <h2>Der aktuelle Diagnoseprozess</h2>
+                <div style="width: 100%; height: 400px; overflow: auto; border: 1px solid #ccc; padding: 10px; background: #F8F9FA;">
+                    <div class="mermaid">
+                        graph TD;
+                            A[Kunde kommt mit defektem Auto] --> B[Werkstatt liest Fehlercode aus];
+                            B --> C{Möglichkeiten};
+                            C -->|Teil austauschen| D[Hoher Kostenaufwand];
+                            D --> E[1 Woche später - Fehler nicht behoben];
+                            E --> F[Kunde unzufrieden];
+                            F --> A;
+            
+                            classDef error fill:#D9534F,stroke:#fff,stroke-width:2px,color:#fff;
+                            classDef warning fill:#F0AD4E,stroke:#fff,stroke-width:2px,color:#fff;
+            
+                            class D error;
+                            class E error;
+                            class F error;
+                            class C warning;
+                    </div>
+                </div>
+            </section>
+            
+            <section>
+                <h2>Der verbesserte Diagnoseprozess</h2>
+                <div style="width: 100%; height: 400px; overflow: auto; border: 1px solid #ccc; padding: 10px; background: #F8F9FA;">
+                    <div class="mermaid">
+                        graph TD;
+                            A[Kunde kommt mit defektem Auto] --> B[Werkstatt liest Fehlercode aus];
+                            B --> C{Möglichkeiten};
+                            C -->|Teil austauschen| D[Hoher Kostenaufwand];
+                            D --> E[1 Woche später - Fehler nicht behoben];
+                            E --> F[Kunde unzufrieden];
+                            F --> A;
+            
+                            C -->|Fehleranalyse| G[Werkstattmitarbeiter findet exakten Fehler];
+                            G --> H[Er tauscht oder repariert das richtige Teil];
+                            H --> I[Fehler überprüfbar];
+                            I --> J[Einmalige geringere Ausgaben];
+                            J --> K[Zufriedener Kunde];
+            
+                            classDef success fill:#44AA44,stroke:#fff,stroke-width:2px,color:#fff;
+                            classDef process fill:#007BFF,stroke:#fff,stroke-width:2px,color:#fff;
+                            
+                            class G process;
+                            class H process;
+                            class I success;
+                            class J success;
+                            class K success;
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Unsere Lösung</h2>
+                <div class="slider-container">
+                    <div class="slider">
+                        <img class="slide" src="OmnAIScopeProduktBild.png" alt="OmnAIScope Oszilloskop">
+                        <img class="slide" src="OmnAIScope mit USBKabel.png" alt= "OmnAIScope Oszilloskop">
+
+                    </div>
+                    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+                    <button class="next" onclick="moveSlide(1)">&#10095;</button>
+                </div>
+                <p>Das erste smarte Oszilloskop für eine fundierte Fahrzeugdiagnose.</p>
+            </section>
+            
+            <section>
+                <h2>Die Vorteile im Prerelease</h2>
+                <ul>
+                    <li>Kompakt & mobil</li>
+                    <li>Einfache Bedienung</li>
+                    <li>Automatische Datenerfassung</li>
+                    <li>Steuerung per Laptop/Tablet</li>
+                </ul>
+            </section>
+            
+            <section>
+                <h2>Die Zielgruppe im Prerelease</h2>
+                <p>👨‍🔧 Werkstätten mit Erfahrung in Oszilloskopen</p>
+                <p>🔍 Für alle, denen der Aufwand mit einem normalen Oszilloskop zu hoch ist</p>
+            </section>
+            
+            <section>
+                <h2>Die Zukunft von OmnAIScope</h2>
+                <p>Unsere Vision für das nächste Jahr:</p>
+                <ul>
+                    <li>📱 <strong>Mobile Steuerung</strong>
+                    <li>🚗 <strong>Fahrbetrieb-Messungen</strong> – Aufnahmen während der Fahrt</li>
+                    <li>💾 <strong>Speicher mit Gutbildern</strong> 
+                    <li>🩺 <strong>Digitale Fahrzeugakte</strong>
+                    <li>📊 <strong>Einfache Analysen</strong>
+                </ul>
+            </section>
+            
+            <section>
+                <h2>Zielgruppe des Release:</h2>
+                <ul>
+                    <li>🔧 Werkstätten, die noch nie mit Oszilloskopen gearbeitet haben</li>
+                    <li>🔍 Werkstätten, die lieber reparieren statt ersetzen</li>
+                    <li>👨‍🎓 Betriebe, die Azubis gezielt ausbilden möchten</li>
+                    <li>💰 Werkstätten, die durch Messen Kosten sparen wollen</li>
+                </ul>
+            </section>
+            
+           <!-- <section>
+                <h2>Langfristige Vision</h2>
+                <div class="r-stack">
+                    <img class="fragment fade-in" src="https://via.placeholder.com/800x400" alt="Diagnoseintegration">
+                    <p class="fragment fade-in">Integration weiterer Sensoren (Temperatur, Vibrationen, etc.)</p>
+                    <img class="fragment fade-in" src="https://via.placeholder.com/800x400" alt="KI-Analyse">
+                    <p class="fragment fade-in">Automatische Fehleranalyse mit KI</p>
+                    <img class="fragment fade-in" src="https://via.placeholder.com/800x400" alt="Schulungsunterstützung">
+                    <p class="fragment fade-in">Supportsystem für Lehrlinge & Fachkräfte</p>
+                </div>
+            </section>
+            
+            <section>
+                <h2>Das OmnAIScope im Einsatz</h2>
+                <div class="r-stack">
+                    <img class="fragment fade-in" src="https://via.placeholder.com/800x400" alt="Bild 1">
+                    <img class="fragment fade-in" src="https://via.placeholder.com/800x400" alt="Bild 2">
+                    <img class="fragment fade-in" src="https://via.placeholder.com/800x400" alt="Bild 3">
+                </div>
+            </section>
+            
+            <section>
+                <h2>Unser Ziel</h2>
+                <p>Effiziente, kostensparende und präzise Fahrzeugdiagnose für jede Werkstatt.</p>
+                <p><strong>Seien Sie Teil der Zukunft der Fahrzeugdiagnose!</strong></p>
+            </section>
+        </div> -->
+    </div>
+    
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.3/mermaid.min.js"></script>
+    <script>
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            center: true,
+            hash: true,
+            transition: 'slide'
+        });
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll(".slide");
+        const slider = document.querySelector(".slider");
+
+        function moveSlide(step) {
+            slideIndex += step;
+            if (slideIndex >= slides.length) slideIndex = 0;
+            if (slideIndex < 0) slideIndex = slides.length - 1;
+            slider.style.transform = `translateX(-${slideIndex * 100}%)`;
+        }
+    </script>
+</body>
+</html>

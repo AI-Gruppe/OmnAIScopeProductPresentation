@@ -7,48 +7,154 @@
     <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
     <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css" id="theme">
     <style>
-        :root {
-            --primary-color: #EB3E36;
-            --secondary-color: #F8F9FA;
-            --background-color: #0a0b0c;
-            --success-color: #44AA44;
-            --error-color: #D9534F;
-            --warning-color: #F0AD4E;
-        }
-        .reveal section h2 {
-            color: var(--primary-color);
-        }
-        .reveal section p, .reveal section ul {
-            color: var(--secondary-color);
-            font-size: 1.3em;
-        }
-        .slider-container {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            margin: auto;
-            overflow: hidden;
-        }
-        .slider {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        .slide {
-            min-width: 100%;
-            box-sizing: border-box;
-        }
-        .prev, .next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-        }
-        .prev { left: 10px; }
-        .next { right: 10px; }
+            :root {
+                --primary-color: #c0212e; /* Kräftiges Rot mit leichtem Pink-Ton */
+                --secondary-color: #ECECEC; /* Sanftes Weiß für bessere Lesbarkeit */
+                --background-color: linear-gradient(135deg, #0a0b0c 0%, #121417 100%); /* Dunkler Verlauf für Tiefe */
+                --success-color: #44C767;
+                --error-color: #D9534F;
+                --warning-color: #F0AD4E;
+            }
+        
+            body {
+                background: var(--background-color);
+                color: var(--secondary-color);
+                font-family: 'Arial', sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+        
+            .reveal section h2 {
+                color: var(--primary-color);
+                text-shadow: 0px 2px 3px rgba(255, 60, 60, 0.4); /* Leichter Glow */
+                font-size: 1.5em;
+            }
+        
+            .reveal section p, .reveal section ul {
+                color: var(--secondary-color);
+                font-size: 1.0em;
+                line-height: 1.3;
+            }
+        
+            .slider-container {
+                position: relative;
+                width: 80%;
+                height: 500px; 
+                max-width: 1000px;
+                margin: auto;
+                overflow: hidden auto;
+                border-radius: 10px;
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            }
+        
+            .slider {
+                display: flex;
+                transition: transform 0.6s ease-in-out;
+            }
+        
+            .slide {
+                min-width: 100%;
+                flex: 0 0 auto; 
+                box-sizing: border-box;
+                background: linear-gradient(135deg, rgba(230, 57, 70, 0.2) 0%, rgba(230, 57, 70, 0) 100%);
+                padding: 20px;
+                border-radius: 10px;
+            }
+
+            .slide img, 
+            .slide video {
+                width: 100%;   /* Bild passt sich der Breite des Containers an */
+                height: 100%;  /* Bild füllt die volle Höhe des Containers */
+                object-fit: contain; /* Bild bleibt proportional und wird nicht verzerrt */
+                display: block;
+            }
+
+
+            .slide video, .slide iframe {
+                width: 100%;
+                height: auto;
+                border-radius: 10px;
+            }
+            
+        
+            .prev, .next {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(230, 57, 70, 0.8);
+                color: white;
+                border: none;
+                padding: 12px 16px;
+                cursor: pointer;
+                border-radius: 50%;
+                transition: all 0.3s ease;
+                box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+            }
+        
+            .prev:hover, .next:hover {
+                background: #E63946;
+                box-shadow: 0px 4px 10px rgba(230, 57, 70, 0.6);
+            }
+        
+            .prev { left: 10px; }
+            .next { right: 10px; }
+
+            /* Stil für die Partner-Sektion */
+            .partners {
+                text-align: center;
+                padding: 40px 20px;
+                background: #2b131300; /* Dunkler Hintergrund */
+                color: white;
+                max-width: 100%; /* Stellt sicher, dass nichts über die Folie hinausgeht */
+            }
+            
+            /* Flexbox für eine horizontale Anordnung */
+            .partner-container {
+                display: flex;
+                flex-wrap: wrap;  /* Falls zu viele Elemente, gehen sie in die nächste Zeile */
+                justify-content: center; /* Zentriert die Logos */
+                align-items: center;
+                gap: 20px; /* Abstand zwischen den Boxen */
+                max-width: 90%; /* Passt sich an die Folienbreite an */
+                margin: auto;
+                padding-top: 20px;
+                overflow: hidden; /* Verhindert, dass Logos über die Folie hinausragen */
+            }
+            
+            /* Einzelne Partner-Box */
+            .partner {
+                background: rgba(255, 255, 255, 0.1);
+                padding: 10px;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 200px;  /* Feste Breite pro Partner-Logo */
+                height: 120px; /* Feste Höhe pro Box */
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            
+            /* Hover-Effekt */
+            .partner:hover {
+                transform: translateY(-5px);
+                box-shadow: 0px 8px 15px rgba(255, 255, 255, 0.2);
+            }
+            
+            /* Logos in der Box */
+            .partner img {
+                border-radius: 10px;
+                max-width: 100%;
+                max-height: 120px;
+                object-fit: contain;
+                filter: grayscale(50%);
+                transition: filter 0.3s ease;
+            }
+            
+            /* Bei Hover werden die Logos farbig */
+            .partner:hover img {
+                filter: grayscale(0%);
+            }
     </style>
 </head>
 <body>
@@ -113,10 +219,13 @@
             <section>
                 <h2>Und damit analysieren ?</h2>
                 <ul>
-                    <li>Messungen können wieder aufgerufen werden</li>
+                    <li>Messdaten können wieder verwendet werden</li>
                     <li>Messdaten über KI analysieren</li>
                     <li>Messdaten mit einem Speicher von Gutbildern vergleichen</li>
-                    <li>Und das alles vom Handy aus</li>
+                    <li style="color: green; list-style: none;">
+                        &#x27A4; Und das alles vom Handy aus
+                    </li>
+                    
                 </ul>
             </section>
             </section>
@@ -124,11 +233,12 @@
 <!-- Das Problem mit der Fahrzeuganalyse: -->
             <section>
             <section data-transition="zoom">
-                <h2>Das Problem der aktuellen Fahrzeuganalyse: </h2>
-                <p>Fehlercodes geben nur einen groben Rahmen wo der Fehler liegt</p>
+                <h2>Doch warum Analyse direkt am Motor? </h2>
+                <p> Das Problem mit der aktuellen Fahrzeuganalyse</p>
             </section>
             <section>
                 <h2>Der aktuelle Diagnoseprozess</h2>
+                <p>Fehlercodes geben nur einen groben Rahmen wo der Fehler liegt</p>
                 <div style="width: 100%; height: 400px; overflow: auto; border: 1px solid #ccc; padding: 10px; background: #F8F9FA;">
                     <div class="mermaid">
                         graph TD;
@@ -184,21 +294,25 @@
 <!-- Wie sich das OmnAIScope auf die Fahrzeuganalyse auswirkt: -->
             <section>
             <section>
-                <h2>Das OmnAIScope in der Fahrzeuganalyse</h2>
-                <div class="slider-container">
-                    <div class="slider">
-                        <img class="slide" src="OmnAIScopeProduktBild.png" alt="OmnAIScope Oszilloskop">
-                        <img class="slide" src="OmnAIScope mit USBKabel.png" alt= "OmnAIScope Oszilloskop">
+                <h2>Das OmnAIScope als Fahrzeugdiagnosetool</h2>
+            </section>      
 
-                    </div>
-                    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-                    <button class="next" onclick="moveSlide(1)">&#10095;</button>
-                </div>
-                <p>Das erste smarte Oszilloskop für eine fundierte Fahrzeugdiagnose.</p>
-            </section>
-            
             <section>
-                <h2>Die Vorteile im Prerelease</h2>
+                <h2>Das Werkstattkonzept</h2>
+                <div style="width: 100%; height: 400px; overflow: auto; border: 1px solid #ccc; padding: 10px; background: #F8F9FA;">
+                    <div class="mermaid">
+                        graph TD;
+                            OmnAIScopes --> Server;
+                            Server -.-> Datenanzeige;
+                            Server -.-> Speicher;
+                            Server -.-> Analyse; 
+                            Analyse -.-> Datenanzeige;
+                            Datenanzeige -.-> Server;
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2>Funktionalität im Prerelease</h2>
                 <ul>
                     <li>Kompakt & mobil</li>
                     <li>Einfache Bedienung</li>
@@ -214,8 +328,8 @@
             </section>
             
             <section>
-                <h2>Die Zukunft von OmnAIScope</h2>
-                <p>Unsere Vision für das nächste Jahr:</p>
+                <h2>Der Release des OmnAIScopes</h2>
+                <p>Funktionalitätserweiterung im nächsten Jahr:</p>
                 <ul>
                     <li>📱 <strong>Mobile Steuerung</strong>
                     <li>🚗 <strong>Fahrbetrieb-Messungen</strong> – Aufnahmen während der Fahrt</li>
@@ -234,35 +348,64 @@
                     <li>💰 Werkstätten, die durch Messen Kosten sparen wollen</li>
                 </ul>
             </section>
-            </section>
-            
-           <!-- <section>
-                <h2>Langfristige Vision</h2>
-                <div class="r-stack">
-                    <img class="fragment fade-in" src="https://via.placeholder.com/800x400" alt="Diagnoseintegration">
-                    <p class="fragment fade-in">Integration weiterer Sensoren (Temperatur, Vibrationen, etc.)</p>
-                    <img class="fragment fade-in" src="https://via.placeholder.com/800x400" alt="KI-Analyse">
-                    <p class="fragment fade-in">Automatische Fehleranalyse mit KI</p>
-                    <img class="fragment fade-in" src="https://via.placeholder.com/800x400" alt="Schulungsunterstützung">
-                    <p class="fragment fade-in">Supportsystem für Lehrlinge & Fachkräfte</p>
-                </div>
+            <section>
+                <h2>Die Zukunft von OmnAIScope</h2>
+                <p>Die langfristige Version<p>
+                <ul>
+                    <li>📱 <strong>KI gestütze Fahrzeugdiagnose</strong>
+                    <li>🚗 <strong>Erweiterbare Diagnosegeräte</strong> – Temperatur, EFeld, Vibration alles über eine Software</li>
+                    <li>💾 <strong>Intelligentes Supportsystem</strong> 
+                </ul>
             </section>
             
             <section>
-                <h2>Das OmnAIScope im Einsatz</h2>
-                <div class="r-stack">
-                    <img class="fragment fade-in" src="https://via.placeholder.com/800x400" alt="Bild 1">
-                    <img class="fragment fade-in" src="https://via.placeholder.com/800x400" alt="Bild 2">
-                    <img class="fragment fade-in" src="https://via.placeholder.com/800x400" alt="Bild 3">
+                <h2>Zielgruppe des OmnAIScopes auf lange Sicht</h2>
+                <ul>
+                    <li>🔧 Von erfahrenen KFZ-Schraubern bis zu jungen Azubis </li>
+                    <li> Die Fahrzeugdiagnose ist nun für jeden einfach, günstig und machbar</li>
+                </ul>
+            </section>
+            </section>
+            <section>
+                <h2>Das OmnAIScope im Einsatz</h2>  
+                <div class="slider-container">
+                    <div class="slider">
+                       <!-- <video class="slide" controls>
+                            <source src="video_2024-12-16_08-15-46.mp4" type="video/mp4">
+                            <source src="videos/omnAIScope.webm" type="video/webm">
+                            Dein Browser unterstützt das Videoformat nicht.
+                        </video>-->
+            
+                        <img class="slide" src="images/photo_2024-12-16_08-15-21.jpg" alt="OmnAIScope Oszilloskop Messung am Auto">
+                        <img class="slide" src="images/Batterieaufnahme.png" alt="OmnAIScope Oszilloskop Messung am Auto">
+                    </div>
+                    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+                    <button class="next" onclick="moveSlide(1)">&#10095;</button>
                 </div>
             </section>
+
+            <section class="partners">
+                <h2>OmnAIScope Händler</h2>
+                <div class="partner-container">
+                    <div class="partner">
+                        <img src="images/ConradLogo.png" alt="Partner 1">
+                    </div>
+                    <div class="partner">
+                        <img src="images/K+KTuning.png" alt="Partner 2">
+                    </div>
+                    <div class="partner">
+                        <img src="images/ccd.jpg" alt="Partner 3">
+                    </div>
+                </div>
+            </section>
+            
             
             <section>
                 <h2>Unser Ziel</h2>
                 <p>Effiziente, kostensparende und präzise Fahrzeugdiagnose für jede Werkstatt.</p>
                 <p><strong>Seien Sie Teil der Zukunft der Fahrzeugdiagnose!</strong></p>
             </section>
-        </div> -->
+        </div>
     </div>
     
     <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
@@ -278,16 +421,31 @@
         mermaid.initialize({ startOnLoad: true });
     </script>
     <script>
-        let slideIndex = 0;
-        const slides = document.querySelectorAll(".slide");
-        const slider = document.querySelector(".slider");
-
-        function moveSlide(step) {
-            slideIndex += step;
-            if (slideIndex >= slides.length) slideIndex = 0;
-            if (slideIndex < 0) slideIndex = slides.length - 1;
-            slider.style.transform = `translateX(-${slideIndex * 100}%)`;
-        }
+        document.addEventListener("DOMContentLoaded", function () {
+            const sliders = document.querySelectorAll(".slider-container");
+        
+            sliders.forEach((sliderContainer, index) => {
+                const slider = sliderContainer.querySelector(".slider");
+                const slides = sliderContainer.querySelectorAll(".slide");
+                const prevButton = sliderContainer.querySelector(".prev");
+                const nextButton = sliderContainer.querySelector(".next");
+        
+                let slideIndex = 0;
+        
+                function moveSlide(step) {
+                    slideIndex += step;
+        
+                    if (slideIndex >= slides.length) slideIndex = 0;
+                    if (slideIndex < 0) slideIndex = slides.length - 1;
+        
+                    slider.style.transform = `translateX(-${slideIndex * 100}%)`;
+                }
+        
+                prevButton.addEventListener("click", () => moveSlide(-1));
+                nextButton.addEventListener("click", () => moveSlide(1));
+            });
+        });
+        
     </script>
 </body>
 </html>

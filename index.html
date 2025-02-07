@@ -10,288 +10,7 @@
       href="https://unpkg.com/reveal.js/dist/theme/black.css"
       id="theme"
     />
-    <style>
-      :root {
-        --primary-color: #c0212e;
-        /* Kräftiges Rot mit leichtem Pink-Ton */
-        --secondary-color: #ececec;
-        /* Sanftes Weiß für bessere Lesbarkeit */
-        --background-color: linear-gradient(135deg, #0a0b0c 0%, #121417 100%);
-        /* Dunkler Verlauf für Tiefe */
-        --success-color: #44c767;
-        --error-color: #d9534f;
-        --warning-color: #f0ad4e;
-      }
-
-      body {
-        background: var(--background-color);
-        color: var(--secondary-color);
-        font-family: "Arial", sans-serif;
-        margin: 0;
-        padding: 0;
-      }
-
-      .reveal section h2 {
-        color: var(--primary-color);
-        text-shadow: 0px 2px 3px rgba(255, 60, 60, 0.4);
-        /* Leichter Glow */
-        font-size: 1.5em;
-      }
-
-      .reveal section p,
-      .reveal section ul {
-        color: var(--secondary-color);
-        font-size: 0.9em;
-        line-height: 1.3;
-      }
-
-      .slider-container {
-        position: relative;
-        width: 80%;
-        height: 500px;
-        max-width: 1000px;
-        margin: auto;
-        overflow: hidden auto;
-        border-radius: 10px;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-      }
-
-      .slider {
-        display: flex;
-        transition: transform 0.6s ease-in-out;
-      }
-
-      .slide {
-        min-width: 100%;
-        display: flex;
-        /* Bild und Text nebeneinander */
-        align-items: center;
-        padding: 20px;
-        box-sizing: border-box;
-        background-color: rgba(0, 0, 0, 0.05);
-        /* Leicht abgesetzter Hintergrund */
-        border-radius: 10px;
-      }
-
-      .slide-content {
-        display: flex;
-        width: 100%;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-      }
-
-      /* Bild-Anpassung */
-      .slide-image {
-        width: 50%;
-        /* Bild nimmt 50% der Breite ein */
-        height: auto;
-        border-radius: 10px;
-        object-fit: contain;
-        /* Verhindert Verzerrungen */
-      }
-
-      /* Das hier geht nur für die Slider 1 version und nicht für die Slider mit text*/
-      .slide .slide-image-RawImages,
-      .slide .slide-image-RawVideos {
-        width: 100%;
-        /* Bild nimmt 50% der Breite ein */
-        height: 100%;
-        /* Bild füllt die volle Höhe des Containers */
-        object-fit: contain;
-        /* Bild bleibt proportional und wird nicht verzerrt */
-        display: block;
-      }
-
-      /* Text-Anpassung */
-      .slide-text {
-        width: 50%;
-        /* Text nimmt 50% der Breite ein */
-        padding: 10px;
-      }
-
-      .slide-text h3 {
-        color: #e63946;
-        font-size: 0.9em;
-        margin-bottom: 10px;
-      }
-
-      .slide-text p {
-        color: white;
-        font-size: 0.7em;
-        line-height: 1;
-      }
-
-      /* Navigation */
-      .prev,
-      .next {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(230, 57, 70, 0.8);
-        color: white;
-        border: none;
-        padding: 12px 16px;
-        cursor: pointer;
-        border-radius: 50%;
-        transition: all 0.3s ease;
-        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
-      }
-
-      .prev:hover,
-      .next:hover {
-        background: #e63946;
-        box-shadow: 0px 4px 10px rgba(230, 57, 70, 0.6);
-      }
-
-      .prev {
-        left: 10px;
-      }
-
-      .next {
-        right: 10px;
-      }
-
-      /* Stil für die Partner-Sektion */
-      .partners {
-        text-align: center;
-        padding: 40px 20px;
-        background: #2b131300;
-        /* Dunkler Hintergrund */
-        color: white;
-        max-width: 100%;
-        /* Stellt sicher, dass nichts über die Folie hinausgeht */
-      }
-
-      /* Flexbox für eine horizontale Anordnung */
-      .partner-container {
-        display: flex;
-        flex-wrap: wrap;
-        /* Falls zu viele Elemente, gehen sie in die nächste Zeile */
-        justify-content: center;
-        /* Zentriert die Logos */
-        align-items: center;
-        gap: 20px;
-        /* Abstand zwischen den Boxen */
-        max-width: 90%;
-        /* Passt sich an die Folienbreite an */
-        margin: auto;
-        padding-top: 20px;
-        overflow: hidden;
-        /* Verhindert, dass Logos über die Folie hinausragen */
-      }
-
-      /* Einzelne Partner-Box */
-      .partner {
-        background: rgba(255, 255, 255, 0.1);
-        padding: 10px;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 200px;
-        /* Feste Breite pro Partner-Logo */
-        height: 120px;
-        /* Feste Höhe pro Box */
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-        transition:
-          transform 0.3s ease,
-          box-shadow 0.3s ease;
-      }
-
-
-
-      /* Hover-Effekt */
-      .partner:hover {
-        transform: translateY(-5px);
-        box-shadow: 0px 8px 15px rgba(255, 255, 255, 0.2);
-      }
-
-      /* Logos in der Box */
-      .partner img {
-        border-radius: 10px;
-        max-width: 100%;
-        max-height: 120px;
-        object-fit: contain;
-        filter: grayscale(50%);
-        transition: filter 0.3s ease;
-      }
-
-      /* Bei Hover werden die Logos farbig */
-      .partner:hover img {
-        filter: grayscale(0%);
-      }
-
-      .links {
-        text-align: center;
-        padding: 20px 20px;
-        background: #590e0e00; /* Dunkler Hintergrund */
-        color: rgb(139, 25, 25);
-        max-width: 100%; /* Stellt sicher, dass nichts über die Folie hinausgeht */
-    }
-    
-    /* Flexbox für eine horizontale Anordnung */
-    .links-container {
-        display: flex;
-        flex-wrap: wrap; /* Falls zu viele Elemente, gehen sie in die nächste Zeile */
-        justify-content: center; /* Zentriert die Links */
-        align-items: center;
-        gap: 20px; /* Abstand zwischen den Boxen */
-        max-width: 100%; /* Passt sich an die Folienbreite an */
-        margin: auto;
-        padding-top: 20px;
-        overflow: hidden; /* Verhindert, dass Inhalte über die Folie hinausragen */
-    }
-    
-    /* Einzelne Link-Box */
-    .link {
-        position: relative; /* Ermöglicht flexibles Layout für das Bild */
-        width: 200px; /* Feste Breite pro Box */
-        height: 150px; /* Feste Höhe pro Box */
-        border-radius: 10px;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        overflow: hidden; /* Verhindert, dass das Bild herausragt */
-    }
-    
-    /* Hover-Effekt */
-    .link:hover {
-        transform: translateY(-5px);
-        box-shadow: 0px 8px 15px rgba(255, 255, 255, 0.2);
-    }
-    
-    /* Bilder nehmen den ganzen Container ein */
-    .link img {
-        width: 100%;
-        height: 100%;
-        padding:5px; 
-        margin:0; 
-        object-fit: cover; /* Bild wird skaliert, ohne verzerrt zu werden */
-        border-radius: 10px; /* Gleiche Abrundung wie der Container */
-        filter: grayscale(50%);
-        transition: filter 0.3s ease;
-    }
-    
-    /* Bei Hover werden die Bilder farbig */
-    .link:hover img {
-        filter: grayscale(0%);
-    }
-    
-      /* Container für das Video (Fullscreen & Zentriert) */
-#intro-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Zentriert das Video */
-    width: 80%; /* Anpassung der Breite */
-    max-width: 900px; /* Maximale Größe */
-    height: auto;
-    opacity: 0.8; /* Transparenz für leichtes Durchscheinen */
-    border-radius: 15px; /* Optional: Abgerundete Ecken */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Optional: Weiche Schatten */
-}
-
-    </style>
+    <link rel="stylesheet" href="main.css"/>
   </head>
 
   <body>
@@ -350,12 +69,17 @@
               <div class="slider">
                 <img
                   class="slide slide-image-RawImages"
-                  src="OmnAIScopeProduktBild.png"
+                  src="images/Oszilloskop_Produktfoto_Freigestellt_5.png"
                   alt="OmnAIScope Oszilloskop"
                 />
                 <img
                   class="slide slide-image-RawImages"
-                  src="OmnAIScope mit USBKabel.png"
+                  src="images/Oszilloskop_Produktfoto_Freigestellt_schraeg_Oben.png"
+                  alt="OmnAIScope Oszilloskop"
+                />
+                <img
+                  class="slide slide-image-RawImages"
+                  src="images/OmnAIScope_USB_Kabel_1.jpg"
                   alt="OmnAIScope Oszilloskop"
                 />
               </div>
@@ -713,6 +437,64 @@
           </div>
         </section>
         <section>
+          <h2>Das OmnAIScope</h2>
+          <p>Unsere Angebote</p>
+            <div class="slider-container">
+              <div class="slider">
+                <!-- Slide 1 -->
+                <div class="slide">
+                  <div class="slide-content">
+                    <img
+                      class="slide-image"
+                      src="images/OmnAIScopeKoffer.jpg"
+                      alt="Oszilloskop OmnAI Koffer klein"
+                    />
+                    <div class="slide-text">
+                      <h3>Der Werkstattkoffer mini</h3>
+                      <p>
+                        Klein, mobil, alles für die erste Messung. Für Einsteiger geeignet.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="slide">
+                  <div class="slide-content">
+                    <img
+                      class="slide-image"
+                      src="images/OmnAIScopeKoffer.jpg"
+                      alt="Oszilloskop OmnAI Koffer klein"
+                    />
+                    <div class="slide-text">
+                      <h3>Der Elektrikerkoffer mini</h3>
+                      <p>
+                        Klein, mobil, Zubehör für Messungen an Platinen. Für Einsteiger geeignet.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                    <!-- Slide 2 -->
+                    <div class="slide">
+                      <div class="slide-content">
+                        <img
+                          class="slide-image"
+                          src="images/OmnAIScopeKoffer.jpg"
+                          alt="Oszilloskop OmnAI Koffer klein"
+                        />
+                        <div class="slide-text">
+                          <h3>Der OmnAIScope-PI Koffer</h3>
+                          <p>
+                            Einsteigerfreundlich, für Messungen auch während der Fahrt. 
+                            Demnächst verfügbar.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+          </div>
+        </section>
+        <section>
           <h2>Unser Ziel</h2>
           <p>
             Effiziente, kostensparende und präzise Fahrzeugdiagnose für jede
@@ -724,6 +506,7 @@
           <div class="links">
             <div class="links-container">
               <div class="link">
+                <p style="font-size: 0.3em;">Informationen</p>
                 <a href="https://omnai-scope.auto-intern.de/" target="_blank">
                     <img src="https://api.screenshotmachine.com?key=e32728&url=https%3A%2F%2Fomnai-scope.auto-intern.de%2F/&dimension=1024x768" 
                          alt="Screenshot von OmnAIScopeseite" 
@@ -731,6 +514,7 @@
                 </a>
               </div>
               <div class="link">
+                <p style="font-size: 0.3em;">Support</p>
                 <a href="https://omnai-scope.auto-intern.de/" target="_blank">
                     <img src="https://api.screenshotmachine.com?key=e32728&url=https%3A%2F%2Fomnai-scope.auto-intern.de/support%2F/&dimension=1024x768" 
                          alt="Screenshot von OmnAIScopeseite" 
@@ -738,6 +522,7 @@
                 </a>
               </div>
               <div class="link">
+                <p style="font-size: 0.3em;">Newsletter</p>
                 <a href="https://omnai-scope.auto-intern.de/" target="_blank">
                     <img src="https://api.screenshotmachine.com?key=e32728&url=https%3A%2F%2Fomnai-scope.auto-intern.de/newsletter%2F/&dimension=1024x768" 
                          alt="Screenshot von OmnAIScopeseite" 
@@ -746,6 +531,7 @@
               </div>
               
               <div class="link">
+                <p style="font-size: 0.3em;">Shop</p>
                 <a href="https://omnai-scope.auto-intern.de/" target="_blank">
                     <img src="https://api.screenshotmachine.com?key=e32728&url=https://www.auto-intern.de/shop/diagnose-komplettsysteme/281/omnaiscope-beta-version?c=114/support%2F/&dimension=1024x768" 
                          alt="Screenshot von OmnAIScopeseite" 
@@ -755,12 +541,6 @@
             </div>
           </div>
         </section>
-        <section>
-            <h2>Live-Vorschau einer Website</h2>
-            
-            <p>Klicke auf das Bild, um die Website zu besuchen.</p>
-        </section>
-        
       </div>
     </div>
 

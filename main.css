@@ -35,7 +35,7 @@ body {
 .slider-container {
   position: relative;
   width: 80%;
-  height: 500px;
+  height: 480px;
   max-width: 1000px;
   margin: auto;
   overflow: hidden auto;
@@ -90,6 +90,13 @@ body {
   object-fit: contain;
   /* Bild bleibt proportional und wird nicht verzerrt */
   display: block;
+}
+
+.reveal section .slide-text p,
+.reveal section .slide-text ul {
+  color: var(--secondary-color);
+  font-size: 0.6em;
+  line-height: 1.3;
 }
 
 /* Text-Anpassung */
@@ -445,6 +452,64 @@ color: #8a1616;
 i.fab {
 font-size: 4rem; /* oder eine andere gewünschte Größe */
 }
+
+/* Hauptcontainer: links Gerät & Fehler, rechts Messbilder */
+.analysis-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Linke Seite (Bauteilbild & Fehlerliste) */
+.left-side {
+  font-size: 0.5em; 
+  width: 40%;
+}
+
+.component-image {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: block;
+  margin-bottom: 15px;
+}
+
+.error-list ul{
+  padding-left: 20px;
+}
+
+/* Rechte Seite (Gutbild & Schlechtbild untereinander) */
+.right-side {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.signal img {
+  width: 700px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.signal p {
+  text-align: center;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+.image-container {
+    text-align: center; /* Optional: Zentriert den Inhalt */
+    width: 100%; /* Sicherstellen, dass es den Container ausfüllt */
+}
+
+.source-text {
+    font-size: 0.4rem;
+    margin-top: 5px; /* Abstand zwischen Bild und Text */
+}
+
 
 
 

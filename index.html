@@ -487,6 +487,14 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="slide">
+                          <div class="slide-content">
+                              <div class="slide-text">
+                                  <h3>Analyseinformationen</h3>
+                                  <p>Kurbelwellensignal, Nockenwellensignal</p>
+                              </div>
+                          </div>
+                      </div>
                     </div>
         
                     <!-- Navigation -->
@@ -500,21 +508,18 @@
                   <div class="slider">
                     <!-- Slide 1: Bauteil -->
                     <div class="slide">
-                      <div class="slide-content">
-                        <div class="image-container">
-                          <img class="slide-image" src="images/KurbelwelleNockenwelle.png" alt="Gutbild">
-                          <p class="source-text" style="font-size:0.7rem;">Quelle: <a href="https://www.autolastgh.com/de/post/was-ist-der-unterschied-zwischen-einer-nockenwelle-und-einer-kurbelwelle" target="_blank">autolastgh.com</a></p>
-                        </div>                        
+                      <div class="slide-content">                     
                           <div class="slide-text">
                               <h3>Kompressionsmessung</h3>
                               <p>Messkomponente: Batterie</p>
+                              <p>Zündung unterdrückt</p>
                           </div>
                       </div>
                   </div>
                       <!-- Slide 1: Gutbild -->
                       <div class="slide">
                           <div class="slide-content">
-                              <img class="slide-image" src="images/SinusCosSteuerkette.jpg" alt="Gutbild">
+                              <img class="slide-image" src="images/RelKompGutbildOszi.png" alt="Gutbild">
                               <div class="slide-text">
                                   <h3>Gutbild</h3>
                                   <p>Alle Zylinder weisen die gleiche Kompression auf.</p>
@@ -525,24 +530,21 @@
                       <!-- Slide 2: Leichte Verschiebung -->
                       <div class="slide">
                           <div class="slide-content">
-                              <img class="slide-image" src="images/LeichteVerschiebung.jpg" alt="Leichte Verschiebung">
+                              <img class="slide-image" src="images/RelKompSchlechtBildVergleichTheo.png" alt="relative Kompression Vergleich">
                               <div class="slide-text">
-                                  <h3>Leichte Dehnung</h3>
-                                  <p>Unregelmäßigkeit in den Spannungshochpunkten.</p>
+                                  <h3>Ein Zylinder weist eine zu geringe Kompression auf</h3>
+                                  <p>.</p>
                               </div>
                           </div>
                       </div>
-      
-                      <!-- Slide 3: Starke Verschiebung -->
                       <div class="slide">
-                          <div class="slide-content">
-                              <img class="slide-image" src="images/StarkeVerschiebung.jpg" alt="Starke Verschiebung">
-                              <div class="slide-text">
-                                  <h3>Starke Dehnung</h3>
-                                  <p> Hochpunkte stark verschoben. Steuerzeiten verschoben → Steuerkette gelängt!</p>
-                              </div>
-                          </div>
-                      </div>
+                        <div class="slide-content">
+                            <div class="slide-text">
+                                <h3>Analyseinformationen</h3>
+                                <p>Anzahl der Zylinder, Batteriesignal, opt.: Nockenwellesignal</p>
+                            </div>
+                        </div>
+                    </div>
                   </div>
       
                   <!-- Navigation -->
@@ -550,6 +552,59 @@
                   <button class="next" onclick="moveSlide(1)">&#10095;</button>
               </div>
       </section>
+      <section>
+        <h4>Luftmassenmesser: Schwarzer Rauch, weißer Rauch, erhöhter Kraftstoffverbrauch?</h4>       
+            <div class="slider-container">
+                <div class="slider">
+                  <!-- Slide 1: Bauteil -->
+                  <div class="slide">
+                    <div class="slide-content">
+                      <div class="image-container">
+                        <img class="slide-image" src="images/LuMaMeBild.png" alt="Luftmassenmesser Bild">
+                        <p class="source-text" style="font-size:0.7rem;">Quelle: <a href="https://www.amz.de/der-tod-kommt-schleichend-defekte-luftmassenmesser-finden-und-ersetzen" target="_blank">amz.de</a></p>
+                      </div>                        
+                        <div class="slide-text">
+                            <h3>Luftmassenmesserüberprüfung</h3>
+                            <p>Messkomponente: Luftmassenmesser</p>
+                        </div>
+                    </div>
+                </div>
+                    <!-- Slide 1: Gutbild -->
+                    <div class="slide">
+                        <div class="slide-content">
+                            <img class="slide-image" src="images/LuMaMEGutbildTheo.png" alt="Gutbild Luftmassenmesser">
+                            <div class="slide-text">
+                                <h3>Gutbild</h3>
+                                <p>Gleichmäßiges steigen und sinken bei Gasstoß. Spannung über 4 V</p>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Slide 2: Leichte Verschiebung -->
+                    <div class="slide">
+                        <div class="slide-content">
+                            <img class="slide-image" src="images/LuMaMeSchlechtBild.png" alt="Schlecht Bild Luftmassenmesser">
+                            <div class="slide-text">
+                                <h3>Schlechtbild</h3>
+                                <p>Gleichmäßiger Verlauf, Spannung unter 4 V. Luftmassenmesser veraltet, verschmutzt o. Undichtigkeit</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-content">
+                            <div class="slide-text">
+                                <h3>Analyseinformationen</h3>
+                                <p>Fahrzeugtyp, Luftmassenmessersignal</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Navigation -->
+                <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+                <button class="next" onclick="moveSlide(1)">&#10095;</button>
+            </div>
+    </section>
       </section>
         <section>
           <section>
